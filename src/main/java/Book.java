@@ -20,4 +20,5 @@ public class Book {
     public String getGenre() {
         return this.genre;
     }
+
 }

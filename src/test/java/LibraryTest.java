@@ -2,6 +2,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class LibraryTest {
     Library library ;
@@ -21,5 +22,16 @@ public class LibraryTest {
         library.addBook(book);
         assertEquals(1,library.numBooks());
     }
+
+   @Test
+   public void canCheckIfBookIsInStockByTitleTrue(){
+       library.addBook(book);
+        assertTrue(library.bookInStock("The Hobbit"));
+   }
+   @Test
+   public void canCheckIfBookIsInStockByTitleFalse(){
+       library.addBook(book);
+        assertEquals(false,library.bookInStock("The Wobbit"));
+   }
 
 }
