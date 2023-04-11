@@ -1,8 +1,9 @@
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import java.util.HashMap;
+
+import static org.junit.Assert.*;
 
 public class LibraryTest {
     Library library ;
@@ -31,7 +32,23 @@ public class LibraryTest {
    @Test
    public void canCheckIfBookIsInStockByTitleFalse(){
        library.addBook(book);
-        assertEquals(false,library.bookInStock("The Wobbit"));
+        assertFalse(library.bookInStock("The Wobbit"));
+   }
+   @Test
+   public void canGetNumbersOfBooksByGenre(){
+       library.addBook(book);
+       library.addBook(book);
+       library.addBook(book);
+       Book musicBook = new Book("z","z","Music");
+       Book sportBook = new Book("z","z","Sport");
+       library.addBook(musicBook);
+       library.addBook(musicBook);
+       library.addBook(sportBook);
+       HashMap<String,Integer> expected = new HashMap<>();
+       expected.put("Fantasy",3);
+       expected.put("Music",2);
+       expected.put("Sport",1);
+       assertEquals(expected,library.getGenresHashMap());
    }
 
 }
