@@ -8,4 +8,8 @@ public class Book {
         this.author= author;
         this.genre = genre;
     }
+
+    public String getTitle() {
+        return this.title;
+    }
 }
