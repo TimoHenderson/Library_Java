@@ -11,7 +11,12 @@ public class BookTest {
     }
 
     @Test
-    public void bookHasName(){
+    public void bookHasTitle(){
         assertEquals("The Hobbit", book.getTitle());
+    }
+
+    @Test
+    public void bookHasAuthor(){
+        assertEquals("JRR Tolkien", book.getAuthor());
     }
 }
