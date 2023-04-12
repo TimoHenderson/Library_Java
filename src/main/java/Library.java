@@ -24,12 +24,8 @@ public class Library {
         HashMap<String,Integer> numBooksByGenre = new HashMap<>();
         for(Book book: books){
             String genre = book.getGenre();
-            if (numBooksByGenre.containsKey(genre)){
-                int numInGenre = numBooksByGenre.get(genre);
-                numBooksByGenre.put(genre, numInGenre+1) ;
-            } else {
-                numBooksByGenre.put(genre,1);
-            }
+            numBooksByGenre.computeIfPresent(genre,(k,v)-> v + 1);
+            numBooksByGenre.putIfAbsent(genre, 1);
         }
         return numBooksByGenre;
     }
